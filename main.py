@@ -6,6 +6,19 @@ import uvicorn
 api = fastapi.FastAPI()
 
 
+@api.get("/")
+def index():
+    body = " <html>" \
+           "<body>" \
+           "<h1>Welcome to fast api</h1>" \
+           "<div>" \
+           "try it: <a href='/api/calc?x=2&y=3&z=10'>calculator</a>" \
+           "</div>" \
+           "</body" \
+           "</html>"
+    return fastapi.responses.HTMLResponse(content=body)
+
+
 @api.get("/api/calc")
 def calculate(x: int, y: int, z: Optional[int] = None):
     if z == 0:
