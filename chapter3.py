@@ -8,7 +8,7 @@ api = fastapi.FastAPI()
 
 @api.get("/")
 def index():
-    body = " <html>" \
+    body = "<html>" \
            "<body>" \
            "<h1>Welcome to fast api</h1>" \
            "<div>" \
